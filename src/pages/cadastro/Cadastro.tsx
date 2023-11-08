@@ -14,7 +14,8 @@ function Cadastro() {
     }
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">
+        <div></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 mb-5 mt-5 place-items-center font-bold">
                 <div className="fundoCadastro hidden lg:block"></div>
                 <form className='flex justify-center items-center flex-col w-2/3 gap-3' >
                     <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>

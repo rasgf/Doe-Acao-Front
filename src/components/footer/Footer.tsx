@@ -6,10 +6,10 @@ function Footer() {
 
     return (
         <>
-            <div className="flex justify-center bg-indigo-900 text-white">
+            <div className="flex justify-center bg-gradient-to-tr from-rose-500 to-rose-600 bg-clip-border text-white shadow-lg shadow-pink-500/40 rounded-xl">
                 <div className="container flex flex-col items-center py-4">
                     <p className='text-xl font-bold'>
-                            Doe Ação | Copyright: {data}
+                            Doe Ação | &copy; {data}
                         </p>
                     <p className='text-lg'>Acesse o nosso GitHub</p>
                     <div className='flex gap-2'>

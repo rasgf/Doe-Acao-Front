@@ -8,10 +8,9 @@ Projeto desenvolvido durante o bootcamp da organização Generation Brasil, com 
 
 Membros:
 
-Eduardo Nogueira
-Eliza Reis
-Matheus Sousa
-Maylis Maria
-Nathan Coelho [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://github.com/nathanccoelho)
+#Eduardo Nogueira
+#Matheus Sousa
+#Maylis Maria
+#Nathan Coelho  [![GitHub](https://imgur.com/7Pa4G14)](https://github.com/nathanccoelho)
 
-Ricardo Galvão
+#Ricardo Galvão
