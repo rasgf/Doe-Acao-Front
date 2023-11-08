@@ -9,7 +9,7 @@ function Home() {
                             Onde boas intenções encontram boas doações
                         </h2>
                         <p className='text-xl'>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae harum quibusdam doloribus, explicabo blanditiis nobis aliquam vero unde dolor suscipit. 
+                        A plataforma Doe Ação é uma rede caritativa que visa promover uma cultura de solidariedade, permitindo que pessoas se envolvam em causas sociais e façam a diferença no mundo.
                         </p>
 
                         <div className="flex justify-around gap-4 self-start">
