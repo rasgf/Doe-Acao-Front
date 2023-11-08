@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
 import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
+import Perfil from './pages/perfil/Perfil';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/cadastro" element={<Cadastro />} />
+              <Route path="/perfil" element={<Perfil/>} />
               <Route path="/sobre-nos" element={<Sobre />} />
             </Routes>
           </div>  
