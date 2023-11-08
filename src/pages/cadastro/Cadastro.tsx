@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 
 import './Cadastro.css'
+import { useState } from 'react';
 
 function Cadastro() {
 
     const navigate = useNavigate()
+
+    const [tipoConta, setTipoConta] = useState('');
 
     function back() {
         navigate('/login')
@@ -15,21 +18,43 @@ function Cadastro() {
                 <div className="fundoCadastro hidden lg:block"></div>
                 <form className='flex justify-center items-center flex-col w-2/3 gap-3' >
                     <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
-                    
+
                     <div className="flex flex-col w-full">
                         <label htmlFor="cpf">Tipo do cadastro</label>
                         <select
+                        onChange={(e) => setTipoConta(e.target.value)}
                             id="cpf"
                             name="cpf"
                             placeholder="cpf"
                             className="border-2 border-slate-700 rounded p-2">
 
                             <option value="cpf">Pessoa Física</option>
-                            <option value="cnpj">ONG</option>
+                            <option value="ong">ONG</option>
 
-                            
                         </select>
                     </div>
+                    
+                    {tipoConta === 'cpf' && <div className="flex flex-col w-full">
+                        <label htmlFor="cpf">CPF</label>
+                        <input
+                            type="cpf"
+                            id="cpf"
+                            name="cpf"
+                            placeholder="CPF"
+                            className="border-2 border-slate-700 rounded p-2"
+                        />
+                    </div>}
+                    {tipoConta === 'ong' &&
+                        <div className="flex flex-col w-full">
+                            <label htmlFor="cnpj">CNPJ</label>
+                            <input
+                                type="cnpj"
+                                id="cnpj"
+                                name="cnpj"
+                                placeholder="CNPJ"
+                                className="border-2 border-slate-700 rounded p-2"
+                            />
+                        </div>}
 
                     <div className="flex flex-col w-full">
                         <label htmlFor="nome">Nome</label>
@@ -62,7 +87,7 @@ function Cadastro() {
                             className="border-2 border-slate-700 rounded p-2"
                         />
                     </div>
-                   
+
                     <div className="flex flex-col w-full">
                         <label htmlFor="foto">Foto</label>
                         <input
