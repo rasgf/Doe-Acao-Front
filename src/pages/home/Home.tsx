@@ -1,5 +1,9 @@
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 
 function Home() {
+    
+    const { nome } = useContext(AuthContext)
     return (
         <>
             <div className="bg-white flex justify-center">

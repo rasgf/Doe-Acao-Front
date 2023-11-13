@@ -1,5 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
@@ -11,8 +12,8 @@ import Perfil from './pages/perfil/Perfil';
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
+    <AuthProvider>
+    <BrowserRouter>
         <Navbar />
           <div className='min-h-[80vh] bg-gray-200'>
             <Routes>
@@ -22,12 +23,13 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/perfil" element={<Perfil/>} />
               <Route path="/sobre-nos" element={<Sobre />} />
-            </Routes>
-          </div>  
-        <Footer />
-      </BrowserRouter>
-    </>
-  );
+              </Routes>
+                </div>
+                <Footer />
+            </BrowserRouter>
+        </ AuthProvider>
+    );
 }
+
 
 export default App;
