@@ -19,12 +19,12 @@ import Usuario from '../../models/Usuario'
         const [usuario, setUsuario] = useState<Usuario>({
             id: 0,
             nome: '',
-            usuario: '',
-            foto:'',
+            usuario: '', 
+            cpf: '86142588798',
+            cnpj: '586390830001q43',
             senha: '',
-            cpf: '',
-            cnpj: '',
-            nascimento: format(new Date(), 'yyy-MM-dd')
+            foto:'',
+            nascimento: ''
         })
     
         useEffect(() => {
@@ -93,7 +93,6 @@ import Usuario from '../../models/Usuario'
                                     <label htmlFor="cpf1">Tipo do cadastro</label>
                                     <select
                                     onChange={(e) => setTipoConta(e.target.value)}
-                                        title="abuble"
                                         id="cpf1"
                                         name="cpf1"
                                         placeholder="cpf"
@@ -153,7 +152,7 @@ import Usuario from '../../models/Usuario'
                                 <div className="flex flex-col w-full">
                                     <label htmlFor="nascimento">Data de Nascimento</label>
                                     <input
-                                        type="text"
+                                        type="date"
                                         id="nascimento"
                                         name="nascimento"
                                         placeholder="nascimento"
