@@ -1,9 +1,9 @@
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/AuthContext"
+import ListaPostagens from "../../components/postagens/listaPostagem/ListaPostagens"
+import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagens"
+
 
 function Home() {
     
-    const { nome } = useContext(AuthContext)
     return (
         <>
             <div className="bg-white flex justify-center">
@@ -18,9 +18,9 @@ function Home() {
 
                         <div className="flex justify-around gap-4 self-start">
                             <div className='rounded text-rose-500 
-                                            border-rose-500 font-bold border-solid border-2 py-2 px-4'
-                                >
-                                Nova Postagem
+                                            border-rose-500 font-bold border-solid border-2 py-2 px-4'>
+                                 <ModalPostagem />
+
                             </div>
                         </div>
                     </div>
@@ -34,6 +34,9 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+            <ListaPostagens />
+
         </>
     )
 }

@@ -18,7 +18,10 @@ function Navbar() {
         <div className="container flex justify-between text-lg ">
           Doe Ação
           <div className="flex gap-4">
-            Postagens Temas Cadastrar tema Perfil
+          <Link to='/temas' className='hover:underline'>Temas</Link>
+          <Link to='/cadastroTema' className='hover:underline'>Cadastrar Tema</Link>
+          <Link to='/postagens' className='hover:underline'>Postagens</Link>
+           Perfil
             <Link to="" onClick={logout} className="hover:underline">
               Sair
             </Link>
