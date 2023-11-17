@@ -5,5 +5,8 @@ export default interface UsuarioLogin {
     foto: string;
     senha: string;
     token: string;
+    cpf: string;
+    cnpj: string;
+    nascimento: string;
 
 }

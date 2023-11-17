@@ -24,7 +24,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
         usuario: "",
         senha: "",
         foto: "",
-        token: ""
+        token: "",
+        cpf: "",
+        cnpj: "",
+        nascimento: ""
     })
 
     const [isLoading, setIsLoading] = useState(false)
@@ -50,7 +53,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
             usuario: "",
             senha: "",
             foto: "",
-            token: ""
+            token: "",
+            cpf: "",
+            cnpj: "",
+            nascimento: ""
         })
     }
 
