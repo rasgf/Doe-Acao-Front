@@ -58,7 +58,7 @@ function ListaPostagens() {
                 />
             )}
 
-            <div className='container mx-auto my-4'>
+            <div className='container mx-auto py-8'>
 
                 {postagens.map((postagem) => (
                     <CardPostagens key={postagem.id} post={postagem} />

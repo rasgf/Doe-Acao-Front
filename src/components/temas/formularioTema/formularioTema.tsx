@@ -119,14 +119,13 @@ function FormularioTema() {
                         type="text"
                         placeholder="Descreva aqui seu tema"
                         name='descricao'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="title bg-gray-100 border border-gray-300 p-2 outline-none"
                         value={tema.descricao}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 
-                    hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center" type="submit">
+                    className="btn border border-rose-500 p-1 px-4 font-semibold cursor-pointer text-white bg-rose-500" type="submit">
 
                     {isLoading ?
                         <RotatingLines

@@ -55,9 +55,9 @@ function ListaTemas() {
                 />
             )}
 
-            <div className="flex justify-center w-full my-4">
-                <div className="container flex flex-col">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex justify-center w-full">
+                <div className="container flex flex-col mt-42">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
 
                         {temas.map((tema) => (
                             <>
