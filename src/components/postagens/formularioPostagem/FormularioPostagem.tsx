@@ -133,13 +133,13 @@ function FormularioPostagem() {
     const carregandoTema = tema.descricao === '';
 
     return (
-        <div className="container flex flex-col mx-auto items-center">
+        <div className="container flex flex-col mx-auto items-center mb-8">
             <h1 className="text-4xl text-center my-8">
                 {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}
             </h1>
 
             <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaPostagem}>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
                     <label htmlFor="titulo">Título da Postagem</label>
                     <input
                         value={postagem.titulo}
@@ -148,27 +148,14 @@ function FormularioPostagem() {
                         placeholder="Insira aqui o Título"
                         name="titulo"
                         required
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none"
                     />
                 </div>
 
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="titulo">Texto da Postagem</label>
-
-                    <input
-                        value={postagem.conteudo}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                        type="text"
-                        placeholder="Adicione aqui o Texto da Postagem"
-                        name="conteudo"
-                        required
-                        className="border-2 border-slate-700 rounded p-2"
-                    />
-                </div>
-
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
                     <p>Tema da Postagem</p>
-                    <select name="tema" id="tema" className='border p-2 border-slate-800 rounded'
+                    <select name="tema" id="tema"
+                    className='title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none'
                         onChange={(e) => buscarTemaPorId(e.currentTarget.value)}
                     >
                         <option value="" selected disabled>Selecione um Tema</option>
@@ -179,11 +166,24 @@ function FormularioPostagem() {
                         ))}
                     </select>
                 </div>
+
+                <div className="flex flex-col">
+                    <label htmlFor="titulo">Texto da Postagem</label>
+
+                    <textarea
+                        value={postagem.conteudo}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        type="text"
+                        placeholder="Adicione aqui o Texto da Postagem"
+                        name="conteudo"
+                        required
+                        className="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
+                    />
+                </div>
                 <button
                     type='submit'
                     disabled={carregandoTema}
-                    className='flex justify-center rounded disabled:bg-slate-200 bg-indigo-400 
-                            hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto py-2'
+                    className='btn border border-rose-500 p-1 px-4 font-semibold cursor-pointer text-white ml-2 bg-rose-500'
                 >
                     {isLoading ?
                         <RotatingLines
