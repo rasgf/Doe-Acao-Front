@@ -1,4 +1,4 @@
- import CardTema from "../cardTemas/CardTemas"
+ import CardTemas from "../cardTemas/CardTemas";
 
  function ListaTemas() {
 
