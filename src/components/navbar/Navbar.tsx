@@ -11,6 +11,7 @@ function Navbar() {
     handleLogout();
     alert("Usuário deslogado com sucesso");
     navigate("/login");
+    
   }
   return (
     <>
