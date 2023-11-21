@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem'
+import Curtir from '../curtirPostagem/CurtirPostagem'
 
 interface CardPostagensProps {
     post: Postagem
@@ -16,6 +17,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                     <h3 className='text-lg font-bold uppercase'>{post.usuario?.nome}</h3>
                 </div>
                 <div className="flex">
+
                     <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-2 px-4
                                             transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85] mr-2'>
                         <button>Editar</button>
@@ -26,6 +28,10 @@ function CardPostagens({ post }: CardPostagensProps) {
                     </Link>
                 </div>
 
+                <div>  <Curtir/> </div>
+
+                
+               
             </div>
             <div>
 
