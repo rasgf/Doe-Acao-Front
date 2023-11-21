@@ -8,5 +8,4 @@ export default interface UsuarioLogin {
     cpf: string;
     cnpj: string;
     nascimento: string;
-
 }
