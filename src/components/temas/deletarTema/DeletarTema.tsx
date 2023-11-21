@@ -72,30 +72,32 @@ function DeletarTema() {
     }
 
     return (
-        <div className='container w-1/3 mx-auto'>
+        <div className="flex justify-center items-center h-[80vh]">
+            <div className='flex flex-col bg-white shadow-lg rounded-lg md:mx-auto py-8 px-8 max-w-md md:max-w-2xl'>
             <h1 className='text-4xl text-center my-4'>Deletar Tema</h1>
 
             <p className='text-center font-semibold mb-4'>
                 Você tem certeza de que deseja apagar o tema a seguir?
             </p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                    Tema
+            <div className='flex flex-col rounded-2xl overflow-hidden justify-between items-center'>
+            <hr className='border border-solid border-gray-100 w-full'/>
+                <header className='py-8 px-6 font-bold text-2xl'>
+                    {tema.descricao}
                 </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
 
-                <div className="flex">
+                <div className="">
 
                     <button
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                        className='rounded text-rose-500 
+                        border-rose-500 font-bold border-solid border-rose-500 border-2 py-2 px-4 mr-2'
                         onClick={retornar}>
                         Não
                     </button>
 
                     <button
-                        className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 
-                            flex items-center justify-center'
+                        className='rounded text-white 
+                        bg-rose-500 font-bold border-solid border-2 border-rose-500 py-2 px-4 mr-2'
                         onClick={deletarTema}>
 
                         {isLoading ?
@@ -112,6 +114,7 @@ function DeletarTema() {
 
                 </div>
             </div>
+        </div>
         </div>
     )
 }

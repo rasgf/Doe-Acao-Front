@@ -74,45 +74,49 @@ function DeletarPostagem() {
     return (
 
 
-<div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar Postagem</h1>
+        <div className='flex justify-center items-center h-[80vh]'>
+                <div className='flex flex-col bg-white shadow-lg rounded-lg md:mx-auto py-8 px-8 max-w-md md:max-w-2xl'>
+                <h1 className='text-4xl text-center my-4'>Deletar Postagem</h1>
 
-            <p className='text-center font-semibold mb-4'>
-                Você tem certeza de que deseja apagar a postagem a seguir?
-    		</p>
+                <p className='text-center font-semibold mb-4'>
+                    Você tem certeza de que deseja apagar a postagem a seguir?
+                </p>
 
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                    Postagem
-                </header>
-                
-                <div className="p-4">
-                    <p className='text-xl h-full'>{postagem.titulo}</p>
-                    <p>{postagem.conteudo}</p>
-                </div>
-                <div className="flex">
-                    <button
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
-                        onClick={retornar}>
-                        Não
-                    </button>
+                <div className='flex flex-col rounded-2xl overflow-hidden justify-between items-center'>
+                    <hr className='border border-solid border-gray-100 w-full'/>
+                    <header className='pt-8 px-6 font-bold text-2xl'>
+                        {postagem.titulo}
+                    </header>
+                    
+                    <div className="p-4">
+                        <p className='text-xl h-full'></p>
+                        <p>{postagem.conteudo}</p>
+                    </div>
+                    <div className="flex">
+                        <button
+                            className='rounded text-rose-500 
+                            border-rose-500 font-bold border-solid border-rose-500 border-2 py-2 px-4 mr-2'
+                            onClick={retornar}>
+                            Não
+                        </button>
 
-                    <button
-                        className='w-full text-slate-100 bg-indigo-400 
-                        hover:bg-indigo-600 flex items-center justify-center'
-                        onClick={deletarPostagem}>
-                            
-                        {isLoading ?
-                            <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
-                            /> :
-                            <span>Sim</span>
-                        }
-                    </button>
+                        <button
+                            className='rounded text-white 
+                            bg-rose-500 font-bold border-solid border-2 border-rose-500 py-2 px-4 mr-2'
+                            onClick={deletarPostagem}>
+                                
+                            {isLoading ?
+                                <RotatingLines
+                                    strokeColor="white"
+                                    strokeWidth="5"
+                                    animationDuration="0.75"
+                                    width="24"
+                                    visible={true}
+                                /> :
+                                <span>Sim</span>
+                            }
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
