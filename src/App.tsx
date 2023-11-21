@@ -1,6 +1,8 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { ToastContainer } from 'react-toastify';
+
 
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
@@ -16,9 +18,13 @@ import FormularioPostagem from './components/postagens/formularioPostagem/Formul
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <AuthProvider>
+    <ToastContainer />
+
     <BrowserRouter>
         <Navbar />
           <div className='min-h-[80vh] bg-gray-200'>
@@ -37,8 +43,6 @@ function App() {
               <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />
               <Route path="/deletarTema/:id" element={<DeletarTema />} />
               <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
-
-
 
               </Routes>
                 </div>
