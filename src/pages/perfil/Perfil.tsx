@@ -40,14 +40,11 @@ function Perfil() {
                             <p className="text-1xl text-slate-700 font-bold leading-normal mb-1">
                                 {usuario.usuario}</p>
                         </div >
+                       
                         <div className="text-center mt-2">
                             <p className="text-1xl text-slate-700 font-bold leading-normal mb-1">
                             {usuario.nascimento !== undefined ? new Date(usuario.nascimento).toLocaleDateString() : ''}</p>
                         </div >
-
-
-                        
-
 
                     </div>
                 </div>

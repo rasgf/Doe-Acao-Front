@@ -25,6 +25,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                         <button>Deletar</button>
                     </Link>
                 </div>
+
             </div>
             <div>
 
