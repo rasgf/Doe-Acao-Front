@@ -15,6 +15,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                         alt="Imagem do Usuário" />
                     <h3 className='text-lg font-bold uppercase'>{post.usuario?.nome}</h3>
                 </div>
+                <img src={post.foto} alt="Foto da postagem" />
                 <div className="flex">
                     <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-2 px-4
                                             transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85] mr-2'>
