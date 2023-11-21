@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
 import { toastAlerta } from "../../utils/toastAlerta";
+import ListaPostagens from "../../components/postagens/listaPostagem/ListaPostagens";
 
 function Perfil() {
     const navigate = useNavigate()
@@ -44,6 +45,7 @@ function Perfil() {
                             <p className="text-1xl text-slate-700 font-bold leading-normal mb-1">
                             {usuario.nascimento !== undefined ? new Date(usuario.nascimento).toLocaleDateString() : ''}</p>
                         </div >
+                        <ListaPostagens />
 
 
                         
