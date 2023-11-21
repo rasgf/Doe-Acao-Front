@@ -20,20 +20,14 @@ function Home() {
 
                             <a 
                             href="#listaPostagensSection"
-                            className='rounded text-white bg-rose-500 font-bold border-solid border-2 border-rose-500 py-2 px-4 mr-2
-                            rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-2 px-4
+                            className=' text-white bg-rose-500   border-2 border-rose-500 py-2 px-4 mr-2
+                            rounded font-bold border-solid 
                             transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85]
                             '>Ver Postagens</a>
                             <div className='rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-2 px-4
                                             transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85]
                                             '>
                                  <ModalPostagem />
-
-                            <div className='rounded text-rose-500 
-                                            border-rose-500 font-bold border-solid border-2 py-2 px-4'>
-                                 <ModalPostagem/>
-
-
                             </div>
                         </div>
                     </div>

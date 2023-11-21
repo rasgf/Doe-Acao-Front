@@ -1,21 +1,7 @@
 import { useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
-
-
-function formatarData(dataString: string): string {
-    const data = new Date(dataString);
-
-    // Verifica se o objeto Date é válido antes de prosseguir
-    if (isNaN(data.getTime())) {
-        return "Data de nascimento não disponível";
-    }
-
-    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    return data.toLocaleDateString('pt-BR', options);
-}
-
-
+import { toastAlerta } from "../../utils/toastAlerta";
 
 function Perfil() {
     const navigate = useNavigate()
@@ -24,7 +10,7 @@ function Perfil() {
 
     useEffect(() => {
         if (usuario.token === "") {
-            alert('Você precisa estar logado')
+            toastAlerta('Você precisa estar logado', "info")
             navigate("/login")
         }
     }, [usuario.token])
@@ -54,14 +40,13 @@ function Perfil() {
                             <p className="text-1xl text-slate-700 font-bold leading-normal mb-1">
                                 {usuario.usuario}</p>
                         </div >
-
-
                         <div className="text-center mt-2">
-                            <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
-                                {usuario && usuario.nascimento
-                                    ? formatarData(usuario.nascimento)
-                                    : "Data de nascimento não disponível"}</h3>
-                        </div>
+                            <p className="text-1xl text-slate-700 font-bold leading-normal mb-1">
+                            {usuario.nascimento !== undefined ? new Date(usuario.nascimento).toLocaleDateString() : ''}</p>
+                        </div >
+
+
+                        
 
 
                     </div>
