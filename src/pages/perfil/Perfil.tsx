@@ -25,8 +25,9 @@ function Perfil() {
                     <div className="px-6">
                         <div className="flex flex-wrap justify-center ">
                             <div className="w-full flex justify-center ">
-                                <div className="relative">
-                                    <img src={usuario.foto} className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" />
+                                <div className="relative w-40 h-40 overflow-hidden rounded-full shadow-xl border-none -m-16 -ml-20 lg:-ml-16">
+                                <img src={usuario.foto !== '' ? usuario.foto : 'https://i.imgur.com/bRpa5Bk.jpg'}
+                                className="object-cover w-full h-full" />
                                 </div>
                             </div>
                             <div className="w-full text-center mt-20">
