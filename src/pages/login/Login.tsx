@@ -35,7 +35,7 @@ function Login() {
 
     return (
         <>
-            <div className="min-h-[80vh] flex justify-center items-center">
+            <div className="h-screen flex justify-center items-center">
                 <form className="relative flex w-96 flex-col mt-14 mb-14 justify-center rounded-xl bg-white bg-clip-border text-gray-700 shadow-md" onSubmit={login}>
                     <div className="relative mx-4 -mt-6 mb-8 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-rose-500 to-rose-600 bg-clip-border text-white shadow-lg shadow-pink-500/40">
                         <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">

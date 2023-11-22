@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem'
+
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 import Curtir from '../curtirPostagem/CurtirPostagem'
 import { GithubLogo, Pencil, Trash } from '@phosphor-icons/react'
 
@@ -8,30 +11,36 @@ interface CardPostagensProps {
 }
 
 function CardPostagens({ post }: CardPostagensProps) {
+
+    const { usuario} = useContext(AuthContext);
+
     return (
         <div className='flex flex-col bg-white shadow-lg rounded-lg md:mx-auto my-8 py-8 px-8 max-w-md md:max-w-2xl'>
 
             <div className='flex items-start py-6 justify-between w-full'>
                 <div className="flex justify-between flex-col">
-                    <img src={post.usuario?.foto} className='h-12 w-12 rounded-full mb-2'
-                        alt="Imagem do Usuário" />
+                    <div className="relative w-12 h-12 overflow-hidden rounded-full">
+                        <img src={post.usuario?.foto !== '' ? post.usuario?.foto : 'https://i.imgur.com/bRpa5Bk.jpg'}
+                            className='object-cover w-full h-full'
+                            alt="Imagem do Usuário" />
+                    </div>
                     <h3 className='text-lg font-bold uppercase'>{post.usuario?.nome}</h3>
                 </div>
-                    <div>   </div>
-                <div className="flex items-center gap-2">
+
+                {post.usuario?.id === usuario.id ?
+               <div className="flex items-center gap-2">
 
                     <Link to={`/editarPostagem/${post.id}`} className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
                         <button><Pencil size={24} weight='bold' /></button>
                     </Link>
                     <Link to={`/deletarPostagem/${post.id}`}
-                    className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
+                        className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
                         <button><Trash size={24} weight='bold'/></button>
                     </Link>
+                </div>                
+                :null}
                 </div>
 
-
-                
-               
             </div>
             <div className='flex flex-col md:flex-row items-center'>
 
