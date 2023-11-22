@@ -18,6 +18,7 @@ import FormularioPostagem from './components/postagens/formularioPostagem/Formul
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 
+
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -43,7 +44,6 @@ function App() {
               <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />
               <Route path="/deletarTema/:id" element={<DeletarTema />} />
               <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
-
               </Routes>
                 </div>
                 <Footer />

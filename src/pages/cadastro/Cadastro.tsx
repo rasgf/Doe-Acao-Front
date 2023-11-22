@@ -1,8 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
-import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
-import { format } from 'date-fns';
-
 import { cadastrarUsuario } from '../../services/Services'
 import Usuario from '../../models/Usuario'
 import { toastAlerta } from '../../utils/toastAlerta';
