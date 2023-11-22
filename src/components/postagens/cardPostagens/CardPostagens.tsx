@@ -33,9 +33,17 @@ function CardPostagens({ post }: CardPostagensProps) {
                 
                
             </div>
-            <div>
+            <div className='flex flex-col md:flex-row items-center'>
 
-                <div className='py-4 gap-2'>
+                {post.foto ? 
+                    <div className="w-full md:w-1/2">
+                        <img src={post.foto} alt="Foto da postagem" className="w-full max-w-xs h-auto align-top" />
+                    </div>
+                    : null
+                }
+
+                <div className={`p-4 ${post.foto ? 'w-full md:w-1/2' : 'w-full'}`}>
+
                     <h4 className='text-lg font-semibold uppercase'>{post.titulo}</h4>
                     <p className='text-sm text-gray-400'>Data: {new Intl.DateTimeFormat(undefined, {
                         dateStyle: 'full',
