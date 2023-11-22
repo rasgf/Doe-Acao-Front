@@ -8,6 +8,7 @@ export default interface Postagem {
   data: string;
   comentario: string;
   curtida: number;
+  foto: string;
   tema: Tema | null;
   usuario: Usuario | null;
 }
