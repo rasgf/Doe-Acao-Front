@@ -167,7 +167,7 @@ function FormularioPostagem() {
                     </select>
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                     <label htmlFor="foto">Link da Foto</label>
                     <input
                         value={postagem.foto}

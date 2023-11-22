@@ -15,7 +15,6 @@ function CardPostagens({ post }: CardPostagensProps) {
                         alt="Imagem do Usuário" />
                     <h3 className='text-lg font-bold uppercase'>{post.usuario?.nome}</h3>
                 </div>
-                <img src={post.foto} alt="Foto da postagem" />
                 <div className="flex">
                     <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-2 px-4
                                             transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85] mr-2'>
@@ -27,9 +26,16 @@ function CardPostagens({ post }: CardPostagensProps) {
                     </Link>
                 </div>
             </div>
-            <div>
+            <div className='flex flex-col md:flex-row'>
 
-                <div className='p-4'>
+                {post.foto ? 
+                    <div className="w-full md:w-1/2">
+                        <img src={post.foto} alt="Foto da postagem" className="w-full max-w-xs h-auto align-top" />
+                    </div>
+                    : null
+                }
+
+                <div className={`p-4 ${post.foto ? 'w-full md:w-1/2' : 'w-full'}`}>
                     <h4 className='text-lg font-semibold uppercase'>{post.titulo}</h4>
                     <p className='font-semibold'>Data: {new Intl.DateTimeFormat(undefined, {
                         dateStyle: 'full',
