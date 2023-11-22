@@ -155,7 +155,7 @@ function FormularioPostagem() {
                 <div className="flex flex-col">
                     <p>Tema da Postagem</p>
                     <select name="tema" id="tema"
-                    className='title bg-gray-100 border border-gray-300 p-2 outline-none'
+                        className='title bg-gray-100 border border-gray-300 p-2 outline-none'
                         onChange={(e) => buscarTemaPorId(e.currentTarget.value)}
                     >
                         <option value="" selected disabled>Selecione um Tema</option>
@@ -165,6 +165,18 @@ function FormularioPostagem() {
                             </>
                         ))}
                     </select>
+                </div>
+
+                <div className="flex flex-col ">
+                    <label htmlFor="foto">Link da Foto</label>
+                    <input
+                        value={postagem.foto}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        type="text"
+                        placeholder="Insira aqui o link da foto"
+                        name="foto"
+                        className="title bg-gray-100 border border-gray-300 p-2 outline-none"
+                    />
                 </div>
 
                 <div className="flex flex-col">
