@@ -3,72 +3,73 @@ import { useNavigate } from 'react-router-dom'
 import { cadastrarUsuario } from '../../services/Services'
 import Usuario from '../../models/Usuario'
 import { toastAlerta } from '../../utils/toastAlerta';
+import { RotatingLines } from 'react-loader-spinner';
 
 
 
-    function Cadastro() {
+function Cadastro() {
 
-        const navigate = useNavigate()
-        const [tipoConta, setTipoConta] = useState('');
-        const [isLoading, setIsLoading] = useState<boolean>(false)
-        const [confirmaSenha, setConfirmaSenha] = useState<string>("")
-        const [inputError, setInputError] = useState('')
-    
-        const [usuario, setUsuario] = useState<Usuario>({
-            id: 0,
-            nome: '',
-            usuario: '',
-            foto:'',
-            senha: '',
-            cpf: '98873168060',
-            cnpj: '13121278000169',
-            nascimento: ''
+    const navigate = useNavigate()
+    const [tipoConta, setTipoConta] = useState('');
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [confirmaSenha, setConfirmaSenha] = useState<string>("")
+
+
+    const [usuario, setUsuario] = useState<Usuario>({
+        id: 0,
+        nome: '',
+        usuario: '',
+        foto: '',
+        senha: '',
+        cpf: '98873168060',
+        cnpj: '13121278000169',
+        nascimento: ''
+    })
+
+    useEffect(() => {
+        if (usuario.id !== 0) {
+            retornar()
+        }
+    }, [usuario])
+
+
+    function retornar() {
+        navigate('/login')
+    }
+
+    function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
+        setConfirmaSenha(e.target.value)
+    }
+
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value
         })
-    
-        useEffect(() => {
-            if (usuario.id !== 0) {
-                retornar()
+    }
+
+    async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault()
+
+        if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
+            setIsLoading(true)
+
+            try {
+                await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
+                toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
+
+            } catch (error) {
+                toastAlerta('Erro ao cadastrar o Usuário', 'erro')
             }
-        }, [usuario])
-        
-    
-        function retornar() {
-            navigate('/login')
+
+        } else {
+            toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'info')
+            setUsuario({ ...usuario, senha: "" })
+            setConfirmaSenha("")
         }
-    
-        function handleConfirmarSenha(e: ChangeEvent<HTMLInputElement>) {
-            setConfirmaSenha(e.target.value)
-        }
-    
-        function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-            setUsuario({
-                ...usuario,
-                [e.target.name]: e.target.value
-            })
-        }
-    
-        async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
-            e.preventDefault()
-    
-            if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
-                setIsLoading(true)
-    
-                try {
-                    await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-                    toastAlerta('Usuário cadastrado com sucesso','sucesso')
-    
-                } catch (error) {
-                    toastAlerta('Erro ao cadastrar o Usuário','erro')
-                }
-    
-            } else {
-                toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.','info')
-                setUsuario({ ...usuario, senha: "" })
-                setConfirmaSenha("")
-            }
-    
-            setIsLoading(false)
-        }
+
+        setIsLoading(false)
+    }
     return (
         <>
 
@@ -86,11 +87,11 @@ import { toastAlerta } from '../../utils/toastAlerta';
                                 <p>Enter your information to register</p>
                             </div>
                             <form className='flex justify-center items-center flex-col w-3/3 gap-3'
-                            onSubmit={cadastrarNovoUsuario} >
+                                onSubmit={cadastrarNovoUsuario} >
                                 <div className="flex flex-col w-full">
                                     <label htmlFor="cpf1">Tipo do cadastro</label>
                                     <select
-                                    onChange={(e) => setTipoConta(e.target.value)}
+                                        onChange={(e) => setTipoConta(e.target.value)}
                                         title="abuble"
                                         id="cpf1"
                                         name="cpf1"
@@ -102,7 +103,7 @@ import { toastAlerta } from '../../utils/toastAlerta';
 
                                     </select>
                                 </div>
-                                
+
                                 {tipoConta === 'cpf' && <div className="flex flex-col w-full">
                                     <label htmlFor="cpf">CPF</label>
                                     <input
@@ -158,7 +159,7 @@ import { toastAlerta } from '../../utils/toastAlerta';
                                         name="nascimento"
                                         placeholder="nascimento"
                                         className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-rose-500"
-                                        value= {usuario.nascimento}
+                                        value={usuario.nascimento}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
@@ -195,8 +196,8 @@ import { toastAlerta } from '../../utils/toastAlerta';
                                         name="confirmarSenha"
                                         placeholder="Confirmar Senha"
                                         className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-rose-500"
-                                                                    value={confirmaSenha}
-                                        onChange={(e: ChangeEvent<HTMLInputElement>) =>  handleConfirmarSenha(e)}
+                                        value={confirmaSenha}
+                                        onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
                                     />
                                 </div>
                                 <div className="flex justify-around w-full gap-8">
@@ -205,7 +206,12 @@ import { toastAlerta } from '../../utils/toastAlerta';
                                     </button>
                                     <button
                                         className='block w-full max-w-xs mx-auto bg-rose-500 hover:bg-rose-700 focus:bg-rose-700 text-white rounded-lg px-3 py-3 font-semibold' type='submit'>
-                                        Cadastrar
+                                        {isLoading ? <RotatingLines
+                                            strokeColor="white"
+                                            strokeWidth="5"
+                                            animationDuration="0.75"
+                                            width="24"
+                                            visible={true} /> : <span>Cadastrar</span>}
                                     </button>
                                 </div>
                             </form>
