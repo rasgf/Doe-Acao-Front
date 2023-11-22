@@ -26,7 +26,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                     </Link>
                 </div>
             </div>
-            <div className='flex flex-col md:flex-row'>
+            <div className='flex flex-col md:flex-row items-center'>
 
                 {post.foto ? 
                     <div className="w-full md:w-1/2">
