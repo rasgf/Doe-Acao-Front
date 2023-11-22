@@ -189,7 +189,7 @@ function FormularioPostagem() {
                         placeholder="Adicione aqui o Texto da Postagem"
                         name="conteudo"
                         required
-                        className="description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none"
+                        className="description bg-gray-100 sec p-3 h-30 border border-gray-300 outline-none"
                     />
                 </div>
                 <button

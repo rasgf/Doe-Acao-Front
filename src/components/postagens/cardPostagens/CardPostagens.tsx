@@ -4,7 +4,7 @@ import Postagem from '../../../models/Postagem'
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Curtir from '../curtirPostagem/CurtirPostagem'
-import { GithubLogo, Pencil, Trash } from '@phosphor-icons/react'
+import { Pencil, Trash } from '@phosphor-icons/react'
 
 interface CardPostagensProps {
     post: Postagem
