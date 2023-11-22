@@ -28,30 +28,28 @@ function CardPostagens({ post }: CardPostagensProps) {
                 </div>
 
                 {post.usuario?.id === usuario.id ?
-               <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2">
 
-                    <Link to={`/editarPostagem/${post.id}`} className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
-                        <button><Pencil size={24} weight='bold' /></button>
-                    </Link>
-                    <Link to={`/deletarPostagem/${post.id}`}
-                        className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
-                        <button><Trash size={24} weight='bold'/></button>
-                    </Link>
-                </div>                
-                :null}
-                </div>
-
+                        <Link to={`/editarPostagem/${post.id}`} className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
+                            <button><Pencil size={24} weight='bold' /></button>
+                        </Link>
+                        <Link to={`/deletarPostagem/${post.id}`}
+                            className='rounded text-gray-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
+                            <button><Trash size={24} weight='bold' /></button>
+                        </Link>
+                    </div>
+                    : null}
             </div>
-            <div className='flex flex-col md:flex-row items-center'>
 
-                {post.foto ? 
+        <div className='flex flex-col md:flex-row items-center gap-4'>
+
+                {post.foto ?
                     <div className="w-full md:w-1/2">
                         <img src={post.foto} alt="Foto da postagem" className="w-full max-w-xs h-auto align-top" />
                     </div>
-                    : null
-                }
+                    : null}
 
-                <div className={`p-4 ${post.foto ? 'w-full md:w-1/2' : 'w-full'}`}>
+                <div className={`${post.foto ? 'w-full md:w-1/2' : 'w-full'}`}>
 
                     <h4 className='text-lg font-semibold uppercase'>{post.titulo}</h4>
                     <p className='text-sm text-gray-400'>Data: {new Intl.DateTimeFormat(undefined, {
@@ -60,7 +58,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                     }).format(new Date(post.data))}</p>
                     <p className='font-semibold text-rose-500'>Tema: {post.tema?.descricao}</p>
                     <p>{post.conteudo}</p>
-                    <div className='a'><Curtir/></div>
+                    <div className='flex justify-end'><Curtir /></div>
                 </div>
             </div>
         </div>
