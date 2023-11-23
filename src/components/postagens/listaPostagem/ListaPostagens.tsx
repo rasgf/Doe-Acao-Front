@@ -53,6 +53,7 @@ function ListaPostagens() {
 
     return (
         <>
+
             {postagens.length === 0 && (
                 <Dna
                     visible={true}
@@ -66,6 +67,8 @@ function ListaPostagens() {
 
             {listaUsuario ? (
 
+                    
+
                 <div>
                     {postagens.map((postagem) => (
                         postagem.usuario?.id === usuario.id ? (
@@ -74,6 +77,8 @@ function ListaPostagens() {
                     ))}
                 </div>
             ) : (
+                
+
                 <div className='container mx-auto py-8'>
 
                 {postagens.map((postagem) => (
