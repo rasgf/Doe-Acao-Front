@@ -107,6 +107,7 @@ function Cadastro() {
                                 {tipoConta === 'cpf' && <div className="flex flex-col w-full">
                                     <label htmlFor="cpf">CPF</label>
                                     <input
+                                        
                                         type="cpf"
                                         id="cpf"
                                         name="cpf"

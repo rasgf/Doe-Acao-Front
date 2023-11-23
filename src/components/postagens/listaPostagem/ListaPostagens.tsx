@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Dna } from 'react-loader-spinner';
+import { Dna } from 'react-loader-spinner'
 
 import { buscar } from '../../../services/Services';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -8,6 +8,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import Postagem from '../../../models/Postagem';
 import CardPostagens from '../cardPostagens/CardPostagens';
 import { toastAlerta } from '../../../utils/toastAlerta';
+import ModalPostagem from '../modalPostagem/ModalPostagens';
 
 
 
@@ -51,6 +52,7 @@ function ListaPostagens() {
 
 
     const listaUsuario = location.pathname === '/perfil';
+    const modal = location.pathname === '/postagens'
 
     return (
         <>
@@ -74,25 +76,48 @@ function ListaPostagens() {
                     {postagens.slice()
                         .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
                         .map((postagem) => (
-                        postagem.usuario?.id === usuario.id ? (
-                            <CardPostagens key={postagem.id} post={postagem} />
-                        ) : null
-                    ))}
-                </div>
-            ) : (
-                <div>
-                    
-                    <div className='container mx-auto py-8'>
-
-                        {postagens.slice()
-                        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
-                        .map((postagem) => (
-                            <CardPostagens key={postagem.id} post={postagem} />
+                            postagem.usuario?.id === usuario.id ? (
+                                <CardPostagens key={postagem.id} post={postagem} />
+                            ) : null
                         ))}
-
-                    </div>
                 </div>
+            ) : (   
+                <div>
+                    {modal ? (
+                        <div>
+                        <div className='flex justify-center items-center gap-4 text-white bg-rose-500 w-60 font-bold rounded-lg mt-2  py-2 px-4
+                    transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85]
+                    '>
+                            <ModalPostagem />
+                        </div>
+    
+                        <div className='container mx-auto py-8'>
+    
+                            {postagens.slice()
+                                .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+                                .map((postagem) => (
+                                    <CardPostagens key={postagem.id} post={postagem} />
+                                ))}
+    
+                        </div>
+                    </div>
 
+                    ): (
+
+                        <div className='container mx-auto py-8'>
+    
+                            {postagens.slice()
+                                .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+                                .map((postagem) => (
+                                    <CardPostagens key={postagem.id} post={postagem} />
+                                ))}
+    
+                        </div>
+                    )
+
+                    }
+
+                </div>
             )
             }
 
