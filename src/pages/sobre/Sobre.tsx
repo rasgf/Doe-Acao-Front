@@ -49,7 +49,7 @@ function Sobre() {
                                 <div className="flex min-h-full flex-col items-center justify-center">
                                     <h1 className="text-3x1 font-bold">Eduardo Nogueira</h1>
                                         <p className="text-xs">Full Stack Java Developer</p>
-                                        <p className="text-xs">25 anos</p>
+                                        <p className="text-xs">26 anos</p>
                                         <p className="text-xs">Itupeva - SP</p>
     
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/eduardo-nogueira-silva/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>

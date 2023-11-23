@@ -195,9 +195,7 @@ function FormularioPostagem() {
                 <button
                     type='submit'
                     disabled={carregandoTema}
-                    className='rounded text-white bg-rose-500 font-bold border-solid border-2 border-rose-500 py-2 px-4 mr-2
-                    rounded text-rose-500 font-bold border-solid border-2 py-2 px-4
-                    transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85]'
+                    className='flex justify-center items-center rounded text-white bg-rose-500 font-bold border-solid border-2 border-rose-500 py-2 px-4 mr-2 rounded text-rose-500 font-bold border-solid border-2 py-2 px-4 transition-all hover:shadow-lg hover:shadow-rose-500/40 active:opacity-[0.85]'
                 >
                     {isLoading ?
                         <RotatingLines
@@ -210,6 +208,7 @@ function FormularioPostagem() {
                         <span>Confirmar</span>
                     }
                 </button>
+
             </form>
         </div>
     )
