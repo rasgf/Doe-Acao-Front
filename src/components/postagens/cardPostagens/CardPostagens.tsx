@@ -81,8 +81,8 @@ function CardPostagens({ post }: CardPostagensProps) {
                         hour: 'numeric',
                         minute: 'numeric',
                     }).format(new Date(post.data))}</p>
+                    <p className='font-semibold text-rose-500'>Tema: {post.tema?.descricao}</p>
                     <p>{post.conteudo}</p>
-                    <p className='mt-4 font-semibold text-rose-500'>Tema: {post.tema?.descricao}</p>
                     <div className='flex justify-end'><Curtir /></div>
                 </div>
             </div>
