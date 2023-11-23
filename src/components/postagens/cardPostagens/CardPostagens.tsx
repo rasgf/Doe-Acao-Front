@@ -73,13 +73,16 @@ function CardPostagens({ post }: CardPostagensProps) {
 
                 <div className={`${post.foto ? 'w-full md:w-1/2' : 'w-full'}`}>
 
-                    <h4 className='text-lg font-semibold uppercase'>{post.titulo}</h4>
-                    <p className='text-sm text-gray-400'>Data: {new Intl.DateTimeFormat(undefined, {
-                        dateStyle: 'full',
-                        timeStyle: 'medium',
+                    <h4 className='font-bold'>{post.titulo}</h4>
+                    <p className='text-sm text-gray-400'>{new Intl.DateTimeFormat(undefined, {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: 'numeric',
+                        minute: 'numeric',
                     }).format(new Date(post.data))}</p>
-                    <p className='font-semibold text-rose-500'>Tema: {post.tema?.descricao}</p>
                     <p>{post.conteudo}</p>
+                    <p className='mt-4 font-semibold text-rose-500'>Tema: {post.tema?.descricao}</p>
                     <div className='flex justify-end'><Curtir /></div>
                 </div>
             </div>
