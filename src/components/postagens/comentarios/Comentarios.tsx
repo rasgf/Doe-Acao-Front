@@ -4,7 +4,7 @@ interface ComentariosProps {
 
 function Comentarios({ conteudo }: ComentariosProps) {
     return (
-        <p className="mt-4 flex flex-wrap pl-2 pb-1 bg-slate-200 rounded-full">{conteudo}</p>
+        <p className="mt-4 pl-2 pb-1 bg-slate-200 rounded-full break-words">{conteudo}</p>
     )
 }
 
