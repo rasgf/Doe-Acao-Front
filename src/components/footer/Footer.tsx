@@ -21,7 +21,7 @@ function Footer() {
                         </p>
                     <p className='text-lg'>Acesse o nosso GitHub</p>
                     <div className='flex gap-2'>
-                        <a href='https://linktr.ee/doeacao' target='_blank' rel='noopener noreferrer'>
+                        <a href='https://linktr.ee/doeacao' className= " "target='_blank' rel='noopener noreferrer'>
                             <GithubLogo size={48} weight='bold' />
                         </a>
                     </div>

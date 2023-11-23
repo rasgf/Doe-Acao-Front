@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem'
 
-import { useContext } from 'react';
+import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import Curtir from '../curtirPostagem/CurtirPostagem'
 import { Pencil, Trash } from '@phosphor-icons/react'
+import Comentarios from '../comentarios/Comentarios';
 
 interface CardPostagensProps {
     post: Postagem
@@ -12,7 +13,28 @@ interface CardPostagensProps {
 
 function CardPostagens({ post }: CardPostagensProps) {
 
-    const { usuario} = useContext(AuthContext);
+    const { usuario } = useContext(AuthContext);
+
+    // Inicia o campo de Comentarios com um Comentário Genérico
+    const [comentarios, setComentarios] = useState([
+        ''
+    ])
+
+    // State que usaremos para pegar o texto dos novos Comentários
+    const [novoComentarioTexto, setNovoComentarioTexto] = useState('')
+
+    // Função que vai pegar os novos comentários digitados e adiciona ao State
+    function criarNovoComentario(event: FormEvent) {
+        event.preventDefault()
+        setComentarios([...comentarios, novoComentarioTexto])
+        setNovoComentarioTexto('')
+    }
+
+    // Função que pega o texto do novo comentário
+    function atualizarNovoComentario(event: ChangeEvent<HTMLTextAreaElement>) {
+        setNovoComentarioTexto(event.target.value)
+    }
+
 
     return (
         <div className='flex flex-col bg-white shadow-lg rounded-lg md:mx-auto my-8 py-8 px-8 max-w-md md:max-w-2xl'>
@@ -41,7 +63,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                     : null}
             </div>
 
-        <div className='flex flex-col md:flex-row items-center gap-4'>
+            <div className='flex flex-col md:flex-row items-center gap-4'>
 
                 {post.foto ?
                     <div className="w-full md:w-1/2">
@@ -61,7 +83,38 @@ function CardPostagens({ post }: CardPostagensProps) {
                     <div className='flex justify-end'><Curtir /></div>
                 </div>
             </div>
+
+            <div className='m-4'>
+
+                <h2 className='mb-4 font-bold'>Comentários</h2>
+
+                {comentarios.map(comentario => {
+                    return (
+                        <Comentarios conteudo={comentario} />
+                    )
+                })}
+            </div>
+
+            <form onSubmit={criarNovoComentario} className='flex flex-col '>
+                <textarea
+                    className='mt-4 pl-4 border-2 border-black rounded-full'
+                    name='comment'
+                    placeholder='Adicionar comentário'
+                    value={novoComentarioTexto}
+                    onChange={atualizarNovoComentario}
+                    required
+                />
+                <footer>
+                    <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold mt-2 py-1 px-4 rounded-full"
+                        type="submit">Publicar</button>
+                </footer>
+            </form>
+
+            
+
         </div>
+
+
     )
 }
 
