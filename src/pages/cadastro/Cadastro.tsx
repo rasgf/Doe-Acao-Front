@@ -19,11 +19,11 @@ import Usuario from '../../models/Usuario'
         const [usuario, setUsuario] = useState<Usuario>({
             id: 0,
             nome: '',
-            usuario: '', 
-            cpf: '86142588798',
-            cnpj: '586390830001q43',
-            senha: '',
+            usuario: '',
             foto:'',
+            senha: '',
+            cpf: '98873168060',
+            cnpj: '13121278000169',
             nascimento: ''
         })
     

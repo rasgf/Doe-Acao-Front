@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from '../src/contexts/AuthContext';
 
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
@@ -23,6 +23,7 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/perfil" element={<Perfil/>} />
               <Route path="/sobre-nos" element={<Sobre />} />
+              <Route path="/temas" element={<ListaTemas />} />
               </Routes>
                 </div>
                 <Footer />
