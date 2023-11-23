@@ -10,7 +10,7 @@ import { RotatingLines } from 'react-loader-spinner';
 function Cadastro() {
 
     const navigate = useNavigate()
-    const [tipoConta, setTipoConta] = useState('');
+    const [tipoConta, setTipoConta] = useState('cpf');
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
@@ -92,7 +92,7 @@ function Cadastro() {
                                     <label htmlFor="cpf1">Tipo do cadastro:</label>
                                     <select
                                         onChange={(e) => setTipoConta(e.target.value)}
-                                        title="abuble"
+                                        title="cpf"
                                         id="cpf1"
                                         name="cpf1"
                                         placeholder="cpf"
