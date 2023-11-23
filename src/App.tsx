@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '../src/contexts/AuthContext';
 
@@ -9,6 +8,7 @@ import Navbar from './components/navbar/Navbar';
 import Cadastro from './pages/cadastro/Cadastro';
 import Sobre from './pages/sobre/Sobre';
 import Perfil from './pages/perfil/Perfil';
+import ListaTemas from './components/temas/listaTemas/ListaTemas';
 
 function App() {
   return (
@@ -23,9 +23,10 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/perfil" element={<Perfil/>} />
               <Route path="/sobre-nos" element={<Sobre />} />
-              <Route path="/temas" element={<ListaTemas />} />
+              <Route path="/temas" element={<ListaTemas/>} />
               </Routes>
                 </div>
+              
                 <Footer />
             </BrowserRouter>
         </ AuthProvider>
