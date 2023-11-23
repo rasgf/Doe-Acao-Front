@@ -11,6 +11,7 @@ import { toastAlerta } from '../../../utils/toastAlerta';
 import ModalPostagem from '../modalPostagem/ModalPostagens';
 
 
+
 function ListaPostagens() {
 
     const navigate = useNavigate();
