@@ -9,7 +9,7 @@ function ModalPostagem() {
         <>
             <Popup
                 trigger={
-                    <button >
+                    <button>
                         Nova Postagem
                     </button>
                 }
