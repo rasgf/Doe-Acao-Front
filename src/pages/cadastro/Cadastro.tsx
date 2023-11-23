@@ -118,7 +118,7 @@ function Cadastro() {
                                 </div>}
                                 {tipoConta === 'ong' &&
                                     <div className="flex flex-col w-full">
-                                        <label htmlFor="cnpj">CNPJ: </label>
+                                        <label htmlFor="cnpj">CNPJ:  <span className="text-red-500">*</span></label>
                                         <input
                                             type="cnpj"
                                             id="cnpj"
