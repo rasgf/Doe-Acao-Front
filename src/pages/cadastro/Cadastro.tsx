@@ -76,7 +76,7 @@ function Cadastro() {
             <div className="min-w-screen   flex items-center justify-center">
                 <div className="bg-gray-100 text-gray-500 shadow-xl w-full overflow-hidden" >
                     <div className="md:flex w-full">
-                        <div className="hidden md:block w-1/2 bg-gray-300 py-10 px-10 flex justify-items-center">
+                        <div className="hidden md:block w-1/2 bg-gray-300 py-10 px-10  justify-items-center">
                             <div className="hidden md:block w-2/2 bg-gray-300 py-10 px-10">
                                 <img src="https://i.imgur.com/ZyojHNd.png" alt="Imagem de background" />
                             </div>
