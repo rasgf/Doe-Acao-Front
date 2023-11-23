@@ -10,6 +10,7 @@ import CardPostagens from '../cardPostagens/CardPostagens';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
 
+
 function ListaPostagens() {
 
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ function ListaPostagens() {
 
     useEffect(() => {
         if (token === '') {
-            toastAlerta('Você precisa estar logado','info')
+            toastAlerta('Você precisa estar logado', 'info')
             navigate('/');
         }
     }, [token])
@@ -67,25 +68,30 @@ function ListaPostagens() {
 
             {listaUsuario ? (
 
-                    
+
 
                 <div>
-                    {postagens.map((postagem) => (
+                    {postagens.slice()
+                        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+                        .map((postagem) => (
                         postagem.usuario?.id === usuario.id ? (
                             <CardPostagens key={postagem.id} post={postagem} />
                         ) : null
                     ))}
                 </div>
             ) : (
-                
+                <div>
+                    
+                    <div className='container mx-auto py-8'>
 
-                <div className='container mx-auto py-8'>
+                        {postagens.slice()
+                        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+                        .map((postagem) => (
+                            <CardPostagens key={postagem.id} post={postagem} />
+                        ))}
 
-                {postagens.map((postagem) => (
-                    <CardPostagens key={postagem.id} post={postagem} />
-                ))}
-
-            </div>    
+                    </div>
+                </div>
 
             )
             }
