@@ -84,7 +84,7 @@ function Cadastro() {
                         <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
                             <div className="text-center mb-10">
                                 <h1 className="font-bold text-3xl text-gray-900">Cadastrar</h1>
-                                <p>Enter your information to register</p>
+                                <p className='text-red-500'>* Indica uma pergunta obrigatória</p>
                             </div>
                             <form className='flex justify-center items-center flex-col w-3/3 gap-3'
                                 onSubmit={cadastrarNovoUsuario} >
