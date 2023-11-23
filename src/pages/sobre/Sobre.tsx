@@ -1,4 +1,21 @@
+import { useContext, useEffect } from "react"
+import { toastAlerta } from "../../utils/toastAlerta"
+import { AuthContext } from "../../contexts/AuthContext"
+import { useNavigate } from "react-router-dom"
+
 function Sobre() {
+
+    const navigate = useNavigate();
+
+    const { usuario } = useContext(AuthContext)
+
+    useEffect(() => {
+        if (usuario.token === "") {
+            toastAlerta('Você precisa estar logado', "info")
+            navigate("/login")
+        }
+    }, [usuario.token])
+
   return (
     <>
       <div className="container m-auto pt-24 px-6 text-gray-600 md:px-12 xl:px-6">
@@ -20,55 +37,128 @@ function Sobre() {
                   Conheça o nosso time
               </h1>
           </div>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/qSrTRgk.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Eduardo Nogueira</p>
-                  </div>
-              </div>
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/rcQLmCS.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Eliza Reis</p>
-                  </div>
-              </div>
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/BvTQdAb.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Matheus Sousa</p>
-                  </div>
-              </div>
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/cWqN3HW.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Maylis Maria</p>
-                  </div>
-              </div>
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/qVHL3OM.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Nathan Coelho</p>
-                  </div>
-              </div>
-              <div className="w-full bg-white rounded-lg p-12 flex flex-col justify-center items-center">
-                  <div className="mb-8">
-                      <img className="object-center object-cover rounded-full h-36 w-36" src="https://i.imgur.com/Uq7ZpSa.jpg" alt="foto"/>
-                  </div>
-                  <div className="text-center">
-                      <p className="text-xl text-gray-700 font-bold mb-2">Ricardo Galvão</p>
-                  </div>
-              </div>
+                <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  " src="https://i.imgur.com/qSrTRgk.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Eduardo Nogueira</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">25 anos</p>
+                                        <p className="text-xs">Itupeva - SP</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/eduardo-nogueira-silva/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  " src="https://i.imgur.com/rcQLmCS.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Eliza Reis</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">28 anos</p>
+                                        <p className="text-xs">Rio de Janeiro - RJ</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/eliza-costa/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+              <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  "  src="https://i.imgur.com/BvTQdAb.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Matheus Sousa</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">27 anos</p>
+                                        <p className="text-xs">Petrópolis - RJ</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/dsousamt/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+              <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  "   src="https://i.imgur.com/cWqN3HW.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Maylis Maria</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">20 anos</p>
+                                        <p className="text-xs">São Paulo - SP</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/maylismaria/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  "   src="https://i.imgur.com/qVHL3OM.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Nathan Coelho</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">24 anos</p>
+                                        <p className="text-xs">Itaquaquecetuba - SP</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/nathan-ccoelho/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex min-h-fit flex-col items-center justify-center w-full bg-white rounded-lg p-12">
+                    <div className="group h-60 w-60 [perspective:1000px]">
+                        <div className="relative h-full w-full rounded-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                            <div className="absolute inset-0">
+                                <img className="h-full w-full rounded-xl object-cover shadow-1 shadow-black/40  "   src="https://i.imgur.com/Uq7ZpSa.jpg" alt="" />
+                            </div>
+                            <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                <div className="flex min-h-full flex-col items-center justify-center">
+                                    <h1 className="text-3x1 font-bold">Ricardo Galvão</h1>
+                                        <p className="text-xs">Full Stack Java Developer</p>
+                                        <p className="text-xs">26 anos</p>
+                                        <p className="text-xs">Rio de Janeiro - RJ</p>
+                                        <p className="text-xs">Frase Motivacional</p>
+                                        <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/ricardo-galvao22/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
           </div>
       </section>
     </>
