@@ -84,12 +84,12 @@ function Cadastro() {
                         <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
                             <div className="text-center mb-10">
                                 <h1 className="font-bold text-3xl text-gray-900">Cadastrar</h1>
-                                <p className='text-red-500'>* Indica uma pergunta obrigatória</p>
+                                <p className='text-red-500'>* Indica um item obrigatório</p>
                             </div>
                             <form className='flex justify-center items-center flex-col w-3/3 gap-3'
                                 onSubmit={cadastrarNovoUsuario} >
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="cpf1">Tipo do cadastro</label>
+                                    <label htmlFor="cpf1">Tipo do cadastro:</label>
                                     <select
                                         onChange={(e) => setTipoConta(e.target.value)}
                                         title="abuble"
@@ -105,7 +105,7 @@ function Cadastro() {
                                 </div>
 
                                 {tipoConta === 'cpf' && <div className="flex flex-col w-full">
-                                    <label htmlFor="cpf">CPF</label>
+                                    <label htmlFor="cpf">CPF: </label>
                                     <input
                                         
                                         type="cpf"
@@ -118,7 +118,7 @@ function Cadastro() {
                                 </div>}
                                 {tipoConta === 'ong' &&
                                     <div className="flex flex-col w-full">
-                                        <label htmlFor="cnpj">CNPJ</label>
+                                        <label htmlFor="cnpj">CNPJ: </label>
                                         <input
                                             type="cnpj"
                                             id="cnpj"
@@ -129,7 +129,7 @@ function Cadastro() {
                                     </div>}
 
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="nome">Nome</label>
+                                    <label htmlFor="nome">Nome:  <span className="text-red-500">*</span></label>
                                     <input
                                         type="text"
                                         id="nome"
@@ -141,19 +141,19 @@ function Cadastro() {
                                     />
                                 </div>
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="usuario">Usuario</label>
+                                    <label htmlFor="usuario">Usuario:  <span className="text-red-500">*</span></label>
                                     <input
                                         type="text"
                                         id="usuario"
                                         name="usuario"
-                                        placeholder="Usuario"
+                                        placeholder="Email"
                                         className="w-full pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-rose-500"
                                         value={usuario.usuario}
                                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                                     />
                                 </div>
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="nascimento">Data de Nascimento</label>
+                                    <label htmlFor="nascimento">Data de Nascimento:  <span className="text-red-500">*</span></label>
                                     <input
                                         type="date"
                                         id="nascimento"
@@ -166,7 +166,7 @@ function Cadastro() {
                                 </div>
 
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="foto">Foto</label>
+                                    <label htmlFor="foto">Foto: </label>
                                     <input
                                         type="text"
                                         id="foto"
@@ -178,7 +178,7 @@ function Cadastro() {
                                     />
                                 </div>
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="senha">Senha</label>
+                                    <label htmlFor="senha">Senha:  <span className="text-red-500">*</span></label>
                                     <input
                                         type="password"
                                         id="senha"
@@ -190,7 +190,7 @@ function Cadastro() {
                                     />
                                 </div>
                                 <div className="flex flex-col w-full">
-                                    <label htmlFor="confirmarSenha">Confirmar Senha</label>
+                                    <label htmlFor="confirmarSenha">Confirmar Senha:  <span className="text-red-500">*</span></label>
                                     <input
                                         type="password"
                                         id="confirmarSenha"
