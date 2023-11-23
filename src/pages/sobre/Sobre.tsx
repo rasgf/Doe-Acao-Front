@@ -51,7 +51,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">25 anos</p>
                                         <p className="text-xs">Itupeva - SP</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/eduardo-nogueira-silva/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">28 anos</p>
                                         <p className="text-xs">Rio de Janeiro - RJ</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/eliza-costa/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">27 anos</p>
                                         <p className="text-xs">Petrópolis - RJ</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/dsousamt/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">20 anos</p>
                                         <p className="text-xs">São Paulo - SP</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/maylismaria/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">24 anos</p>
                                         <p className="text-xs">Itaquaquecetuba - SP</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/nathan-ccoelho/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ function Sobre() {
                                         <p className="text-xs">Full Stack Java Developer</p>
                                         <p className="text-xs">26 anos</p>
                                         <p className="text-xs">Rio de Janeiro - RJ</p>
-                                        <p className="text-xs">Frase Motivacional</p>
+    
                                         <button className="mt-2 roudend-md bg-neutral-800 py-1 px-2 text-sm hover:bg-neutral-900"><a href="https://www.linkedin.com/in/ricardo-galvao22/" target="_blank" rel="noopener noreferrer">Leia mais</a></button>
                                 </div>
                             </div>
