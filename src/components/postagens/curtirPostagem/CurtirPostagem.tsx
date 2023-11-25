@@ -1,23 +1,31 @@
-import { ThumbsUp } from '@phosphor-icons/react';
-import { useState } from 'react'
+import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
 
-function Curtir() {
-    const [valor, setValor] = useState(0);
 
-    function Curtir() {
-        setValor(valor + 1);
+const CurtirPostagem = () => {
+  const [curtido, setCurtido] = useState(false);
+  const [valor, setValor] = useState(0);
+
+  const curtir = () => {
+    if (!curtido) {
+      setValor(valor + 1);
+    } else {
+      setValor(valor - 1);
     }
 
-    return (
-        <div>
-            <button onClick= {Curtir}
-            className='flex flex-row gap-2 rounded text-rose-500 border-rose-500 font-bold border-solid border-2 py-1 px-2 my-4
-            transition-all hover:shadow-lg hover:shadow-rose-500/40 active:text-rose-500 activeborder-rose-500'>
-                <ThumbsUp size={24} weight='bold' />
-                <span>{valor}</span>
-            </button>
-        </div>
-    )
-}
+    setCurtido(!curtido);
+  };
 
-export default Curtir
+  return (
+    <button
+      onClick={curtir}
+      className={`flex flex-row gap-2 rounded ${curtido ? 'text-rose-500' : 'text-gray-500'} font-bold py-1 px-2 my-4
+        transition-all  active:text-rose-500 activeborder-rose-500`}
+    >
+      <FaHeart size={24} color={curtido ? 'red' : 'gray'} />
+      <span>{valor}</span>
+    </button>
+  );
+};
+
+export default CurtirPostagem;

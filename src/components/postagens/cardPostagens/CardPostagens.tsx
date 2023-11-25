@@ -16,18 +16,18 @@ function CardPostagens({ post }: CardPostagensProps) {
     const { usuario } = useContext(AuthContext);
 
     // Inicia o campo de Comentarios com um Comentário Genérico
-    const [comentarios, setComentarios] = useState([
-        ''
-    ])
+    const [comentarios, setComentarios] = useState<string[]>([])
 
     // State que usaremos para pegar o texto dos novos Comentários
     const [novoComentarioTexto, setNovoComentarioTexto] = useState('')
 
     // Função que vai pegar os novos comentários digitados e adiciona ao State
     function criarNovoComentario(event: FormEvent) {
-        event.preventDefault()
-        setComentarios([...comentarios, novoComentarioTexto])
-        setNovoComentarioTexto('')
+        event.preventDefault();
+        if (novoComentarioTexto.trim() !== '') {
+            setComentarios([...comentarios, novoComentarioTexto]);
+            setNovoComentarioTexto('');
+        }
     }
 
     // Função que pega o texto do novo comentário
@@ -88,15 +88,19 @@ function CardPostagens({ post }: CardPostagensProps) {
             </div>
 
             <div className='m-4'>
-
                 <h2 className='mb-4 font-bold'>Comentários</h2>
-
-                {comentarios.map(comentario => {
-                    return (
-                        <Comentarios conteudo={comentario} />
-                    )
-                })}
+                {comentarios.length > 0 ? (
+                    comentarios
+                        .filter(comentario => comentario.trim() !== '') // Remove comentários vazios
+                        .map((comentario, index) => (
+                            <Comentarios key={index} conteudo={comentario} />
+                        ))
+                ) : (
+                    <p>Sem comentários</p>
+                )}
             </div>
+
+
 
             <form onSubmit={criarNovoComentario} className='flex flex-col '>
                 <textarea
@@ -113,7 +117,7 @@ function CardPostagens({ post }: CardPostagensProps) {
                 </footer>
             </form>
 
-            
+
 
         </div>
 
