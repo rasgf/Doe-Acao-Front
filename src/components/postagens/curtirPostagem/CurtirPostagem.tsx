@@ -22,7 +22,7 @@ const CurtirPostagem = () => {
       className={`flex flex-row gap-2 rounded ${curtido ? 'text-rose-500' : 'text-gray-500'} font-bold py-1 px-2 my-4
         transition-all  active:text-rose-500 activeborder-rose-500`}
     >
-      <FaHeart size={24} color={curtido ? 'red' : 'gray'} />
+      <FaHeart size={18} color={curtido ? 'red' : 'gray'} />
       <span>{valor}</span>
     </button>
   );
