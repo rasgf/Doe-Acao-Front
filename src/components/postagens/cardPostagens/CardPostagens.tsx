@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import CurtirPostagem from '../curtirPostagem/CurtirPostagem';
+import { Pencil, Trash } from '@phosphor-icons/react'
 import Comentarios from '../comentarios/Comentarios';
 import Postagem from '../../../models/Postagem';
 
@@ -34,39 +35,36 @@ function CardPostagens({ post }: CardPostagensProps) {
       <div className="bg-white p-8 rounded-lg shadow-md max-w-md">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
-           <Link to={perfilUsuario}><img src={post.usuario?.foto || 'https://i.imgur.com/bRpa5Bk.jpg'} alt="User Avatar" className="w-8 h-8 rounded-full" /></Link> 
+            <Link to={perfilUsuario}><img src={post.usuario?.foto || 'https://i.imgur.com/bRpa5Bk.jpg'} alt="User Avatar" className="w-8 h-8 rounded-full" /></Link>
             <div>
               <p className="text-gray-800 font-semibold">
                 <Link to={perfilUsuario}>{post.usuario?.nome}</Link>
-                </p>
+              </p>
               <p className="text-gray-500 text-sm"> {new Intl.DateTimeFormat(undefined, {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: 'numeric',
-                        minute: 'numeric',
-                    }).format(new Date(post.data))} </p>
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+              }).format(new Date(post.data))} </p>
+
+             
             </div>
+            {post.usuario?.id === usuario.id ?
+                <div className="flex items-center gap-2">
+
+                  <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
+                    <button><Pencil size={24} weight='bold' /></button>
+                  </Link>
+                  <Link to={`/deletarPostagem/${post.id}`}
+                    className='rounded text-rose-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
+                    <button><Trash size={24} weight='bold' /></button>
+                  </Link>
+                </div>
+                : null}
           </div>
           {post.usuario?.id === usuario.id && (
             <div className="text-gray-500 cursor-pointer">
-              <button className="hover:bg-gray-50 rounded-full p-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="7" r="1" />
-                  <circle cx="12" cy="12" r="1" />
-                  <circle cx="12" cy="17" r="1" />
-                </svg>
-              </button>
             </div>
           )}
         </div>
@@ -111,23 +109,32 @@ function CardPostagens({ post }: CardPostagensProps) {
           )}
         </div>
 
-        <form onSubmit={criarNovoComentario} className="flex flex-col ">
-          <textarea
-            className="mt-4 pl-4 border-2 border-black rounded-full"
-            name="comment"
-            placeholder="Add a comment"
+        <div className="flex items-center justify-center shadow-xl">
+        <form onSubmit={criarNovoComentario} className="w-full bg-white rounded-lg px-4 pt-2">
 
-            
+        <div className="w-full md:w-full px-3 mb-2 mt-2">
+            <textarea 
+            className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+            name="comment"
+            placeholder="Adicione um comentário"
+
+
             value={novoComentarioTexto}
             onChange={atualizarNovoComentario}
             required
           />
-          <footer>
-            <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold mt-2 py-1 px-4 rounded-full" type="submit">
+          </div>
+          <div className="w-full md:w-full flex items-start md:w-full px-3">
+
+            
+         </div>
+          <footer className='flex justify-end  mr-4 mb-2'>
+            <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold  py-1 px-4 rounded-full" type="submit">
               Publicar
             </button>
           </footer>
         </form>
+        </div>
       </div>
     </div>
   );
