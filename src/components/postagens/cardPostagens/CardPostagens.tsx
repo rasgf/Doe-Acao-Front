@@ -15,6 +15,12 @@ function CardPostagens({ post }: CardPostagensProps) {
 
   const [comentarios, setComentarios] = useState<string[]>([]);
   const [novoComentarioTexto, setNovoComentarioTexto] = useState('');
+  const [mostrarComentarios, setMostrarComentarios] = useState(false);
+
+  const toggleComentarios = () => {
+    setMostrarComentarios(!mostrarComentarios);
+  };
+
 
   const perfilUsuario = `/perfil/${post.usuario?.id}`;
 
@@ -23,6 +29,8 @@ function CardPostagens({ post }: CardPostagensProps) {
     if (novoComentarioTexto.trim() !== '') {
       setComentarios([...comentarios, novoComentarioTexto]);
       setNovoComentarioTexto('');
+
+      setMostrarComentarios(true);
     }
   }
 
@@ -91,7 +99,8 @@ function CardPostagens({ post }: CardPostagensProps) {
           <div className="flex items-center space-x-2">
             <CurtirPostagem />
           </div>
-          <button className="flex justify-center items-center gap-2 px-2 hover:bg-gray-50 rounded-full p-1">
+          <button className="flex justify-center items-center gap-2 px-2 hover:bg-gray-50 rounded-full p-1"
+          onClick={toggleComentarios}>
             <svg width="22px" height="22px" viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -107,15 +116,20 @@ function CardPostagens({ post }: CardPostagensProps) {
         <p className="text-gray-800 font-semibold">Comentários</p>
         <hr className="mt-2 mb-2" />
 
-        <div className="mt-4">
-          {comentarios.length > 0 ? (
-            comentarios.map((comentario, index) => (
-              <Comentarios key={index} conteudo={comentario} />
-            ))
-          ) : (
-            <p>Sem comentários</p>
-          )}
-        </div>
+
+            {mostrarComentarios &&(
+              <div className="mt-4">
+              {comentarios.length > 0 ? (
+                comentarios.map((comentario, index) => (
+                  <Comentarios key={index} conteudo={comentario} />
+                ))
+              ) : (
+                <p>Sem comentários</p>
+              )}
+            </div>
+
+            )}
+        
 
         <div className="flex items-center justify-center shadow-xl">
         <form onSubmit={criarNovoComentario} className="w-full bg-white rounded-lg px-4 pt-2">
@@ -137,7 +151,9 @@ function CardPostagens({ post }: CardPostagensProps) {
             
          </div>
           <footer className='flex justify-end  mr-4 mb-2'>
-            <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold  py-1 px-4 rounded-full" type="submit">
+            <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold  py-1 px-4 rounded-full" 
+            type="submit"
+           >
               Publicar
             </button>
           </footer>
