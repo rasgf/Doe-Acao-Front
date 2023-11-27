@@ -95,7 +95,7 @@ function ListaPostagens() {
 
                             </div>
 
-                            <div className='container mx-auto py-8'>
+                            <div className='container mx-3 py-8'>
 
                                 {postagens.slice()
                                     .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
