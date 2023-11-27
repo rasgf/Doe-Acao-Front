@@ -32,7 +32,7 @@ function CardPostagens({ post }: CardPostagensProps) {
 
   return (
     <div className="bg-gray-100  flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-md">
+      <div className="bg-white p-8 rounded-lg shadow-md max-w-xl">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
             <Link to={perfilUsuario}><img src={post.usuario?.foto || 'https://i.imgur.com/bRpa5Bk.jpg'} alt="User Avatar" className="w-8 h-8 rounded-full" /></Link>
@@ -51,7 +51,7 @@ function CardPostagens({ post }: CardPostagensProps) {
              
             </div>
             {post.usuario?.id === usuario.id ?
-                <div className="flex items-center gap-2">
+                <div className="flex justify-end ml-20 ">
 
                   <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
                     <button><Pencil size={24} weight='bold' /></button>
@@ -69,6 +69,13 @@ function CardPostagens({ post }: CardPostagensProps) {
           )}
         </div>
 
+            <div className=''>
+
+
+        <div className="mb-4">
+          <h3 className="text-gray-800 font-bold text-xl">{post.titulo}</h3>
+        </div>
+              
         <div className="mb-4">
           <p className="text-gray-800">{post.conteudo}</p>
         </div>
@@ -78,6 +85,7 @@ function CardPostagens({ post }: CardPostagensProps) {
             <img src={post.foto} alt="Post Image" className="w-full  object-cover rounded-md" />
           </div>
         )}
+        </div>
 
         <div className="flex items-center justify-between text-gray-500">
           <div className="flex items-center space-x-2">
