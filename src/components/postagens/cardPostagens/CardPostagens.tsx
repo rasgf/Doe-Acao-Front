@@ -40,7 +40,7 @@ function CardPostagens({ post }: CardPostagensProps) {
 
   return (
     <div className="bg-gray-100  flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-xl">
+      <div className="bg-white p-8 rounded-lg shadow-md w-2/4 ">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
             <Link to={perfilUsuario}><img src={post.usuario?.foto || 'https://i.imgur.com/bRpa5Bk.jpg'} alt="User Avatar" className="w-8 h-8 rounded-full" /></Link>
@@ -56,10 +56,10 @@ function CardPostagens({ post }: CardPostagensProps) {
                 minute: 'numeric',
               }).format(new Date(post.data))} </p>
 
-             
+
             </div>
-            {post.usuario?.id === usuario.id ?
-                <div className="flex justify-end ml-20 ">
+              {post.usuario?.id === usuario.id ?
+                <div className="pl-48">
 
                   <Link to={`/editarPostagem/${post.id}`} className='rounded text-rose-300 p-2 transition-all hover:text-rose-500 active:opacity-[0.85]'>
                     <button><Pencil size={24} weight='bold' /></button>
@@ -70,29 +70,33 @@ function CardPostagens({ post }: CardPostagensProps) {
                   </Link>
                 </div>
                 : null}
-          </div>
+            </div>
           {post.usuario?.id === usuario.id && (
             <div className="text-gray-500 cursor-pointer">
             </div>
           )}
         </div>
 
-            <div className=''>
+        <div className=''>
 
 
-        <div className="mb-4">
-          <h3 className="text-gray-800 font-bold text-xl">{post.titulo}</h3>
-        </div>
-              
-        <div className="mb-4">
-          <p className="text-gray-800">{post.conteudo}</p>
-        </div>
-
-        {post.foto && (
-          <div className="mb-4">
-            <img src={post.foto} alt="Post Image" className="w-full  object-cover rounded-md" />
+          <div className="mb-4 ml-50">
+            <h3 className="text-gray-800 font-bold text-xl">{post.titulo}</h3>
           </div>
-        )}
+
+          <div className="mb-4">
+            <p className="text-gray-800">{post.conteudo}</p>
+          </div>
+
+          {post.foto && (
+            <div className="mb-4">
+              <img src={post.foto} alt="Post Image" className="w-full  object-cover rounded-md" />
+            </div>
+          )}
+
+          <div className=" hover:underline">
+           <Link to={"/temas"}><p className="text-gray-800 ">{post.tema?.descricao}</p></Link> 
+          </div>
         </div>
 
         <div className="flex items-center justify-between text-gray-500">
@@ -100,7 +104,7 @@ function CardPostagens({ post }: CardPostagensProps) {
             <CurtirPostagem />
           </div>
           <button className="flex justify-center items-center gap-2 px-2 hover:bg-gray-50 rounded-full p-1"
-          onClick={toggleComentarios}>
+            onClick={toggleComentarios}>
             <svg width="22px" height="22px" viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -117,47 +121,47 @@ function CardPostagens({ post }: CardPostagensProps) {
         <hr className="mt-2 mb-2" />
 
 
-            {mostrarComentarios &&(
-              <div className="mt-4">
-              {comentarios.length > 0 ? (
-                comentarios.map((comentario, index) => (
-                  <Comentarios key={index} conteudo={comentario} />
-                ))
-              ) : (
-                <p>Sem comentários</p>
-              )}
-            </div>
-
+        {mostrarComentarios && (
+          <div className="mt-4">
+            {comentarios.length > 0 ? (
+              comentarios.map((comentario, index) => (
+                <Comentarios key={index} conteudo={comentario} />
+              ))
+            ) : (
+              <p>Sem comentários</p>
             )}
-        
+          </div>
+
+        )}
+
 
         <div className="flex items-center justify-center shadow-xl">
-        <form onSubmit={criarNovoComentario} className="w-full bg-white rounded-lg px-4 pt-2">
+          <form onSubmit={criarNovoComentario} className="w-full bg-white rounded-lg px-4 pt-2">
 
-        <div className="w-full md:w-full px-3 mb-2 mt-2">
-            <textarea 
-            className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
-            name="comment"
-            placeholder="Adicione um comentário"
+            <div className="w-full md:w-full px-3 mb-2 mt-2">
+              <textarea
+                className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+                name="comment"
+                placeholder="Adicione um comentário"
 
 
-            value={novoComentarioTexto}
-            onChange={atualizarNovoComentario}
-            required
-          />
-          </div>
-          <div className="w-full md:w-full flex items-start md:w-full px-3">
+                value={novoComentarioTexto}
+                onChange={atualizarNovoComentario}
+                required
+              />
+            </div>
+            <div className="w-full md:w-full flex items-start md:w-full px-3">
 
-            
-         </div>
-          <footer className='flex justify-end  mr-4 mb-2'>
-            <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold  py-1 px-4 rounded-full" 
-            type="submit"
-           >
-              Publicar
-            </button>
-          </footer>
-        </form>
+
+            </div>
+            <footer className='flex justify-end  mr-4 mb-2'>
+              <button className="bg-rose-500 hover:bg-rose-700 text-white font-bold  py-1 px-4 rounded-full"
+                type="submit"
+              >
+                Publicar
+              </button>
+            </footer>
+          </form>
         </div>
       </div>
     </div>
